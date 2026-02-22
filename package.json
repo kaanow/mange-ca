@@ -1,0 +1,12 @@
+{
+  "name": "mange-ca",
+  "version": "1.0.0",
+  "description": "Mange Ça — a personal recipe site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
