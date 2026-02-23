@@ -22,10 +22,6 @@ WHERE slug = 'lamb-meatballs';
 UPDATE recipes SET summary = 'This recipe originates <a href="https://www.cookingclassy.com/pasta-primavera/">here</a> for me.'
 WHERE slug = 'pasta-primavera';
 
--- soft-boiled-eggs: origin link not captured (page fetch timed out); leaving prior-art URL for now
-UPDATE recipes SET summary = 'This recipe originates <a href="https://eatlogicalsentences.com/prior-art/soft-boiled-eggs/">here</a> for me.'
-WHERE slug = 'soft-boiled-eggs';
-
 UPDATE recipes SET summary = 'This recipe originates <a href="https://www.themediterraneandish.com/greek-chicken-souvlaki-recipe-tzatziki/">here</a> for me.'
 WHERE slug = 'souvlaki-marinade';
 

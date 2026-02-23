@@ -1,0 +1,8 @@
+---
+description: Retry failed loads (fetches, requests) before giving up
+alwaysApply: true
+---
+
+# Retry before giving up
+
+When something doesn't load the first time (e.g. URL fetch times out, request fails), **try again a few times** (e.g. 2–3 retries with a short pause or immediately) before treating it as unavailable or using a fallback. Don't give up after a single failure.
