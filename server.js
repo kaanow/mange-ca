@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const sanitizeHtml = require('sanitize-html');
 const db = require('./db');
 
 const app = express();
@@ -9,7 +10,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Format recipe text: escape HTML, newlines → <br>, number+unit → number+nbsp+unit
+const allowedRecipeTags = ['h2', 'h3', 'h4', 'ul', 'ol', 'li', 'a', 'p', 'strong', 'em', 'br'];
+const allowedRecipeAttrs = { a: ['href'] };
+
 function escapeHtml(s) {
   if (s == null) return '';
   return String(s)
@@ -29,7 +32,16 @@ function nbspUnits(s) {
     '$1\u00A0$2'
   );
 }
-app.locals.formatRecipeText = (s) => nl2br(nbspUnits(escapeHtml(s || '')));
+function formatRecipeContent(s) {
+  if (s == null || s === '') return '';
+  const t = String(s);
+  const withNbsp = nbspUnits(t);
+  if (/<[a-z]/i.test(t)) {
+    return sanitizeHtml(withNbsp, { allowedTags: allowedRecipeTags, allowedAttributes: allowedRecipeAttrs });
+  }
+  return nl2br(escapeHtml(withNbsp));
+}
+app.locals.formatRecipeText = formatRecipeContent;
 
 app.get('/', async (req, res) => {
   const recipes = await db.getRecipes();

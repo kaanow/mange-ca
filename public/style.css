@@ -84,14 +84,27 @@ section p { color: #7a6e62; }
 .recipe-detail .back a:hover { color: #b94a2c; }
 .recipe-detail h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
 .recipe-detail .summary { color: #7a6e62; margin-bottom: 1.5rem; }
+.recipe-detail .summary a { color: #b94a2c; text-decoration: none; }
+.recipe-detail .summary a:hover { text-decoration: underline; }
 .recipe-detail h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
 .recipe-detail .ingredients,
 .recipe-detail .instructions {
   font-family: inherit;
-  white-space: pre-wrap;
   color: #2e2820;
   margin: 0;
 }
+.recipe-detail .ingredients ul,
+.recipe-detail .instructions ul { margin: 0.5rem 0 1rem 1.25rem; }
+.recipe-detail .ingredients li,
+.recipe-detail .instructions li { margin-bottom: 0.25rem; }
+.recipe-detail .instructions h3,
+.recipe-detail .ingredients h4 { font-size: 1rem; font-weight: 700; margin: 1.25rem 0 0.35rem; }
+.recipe-detail .instructions h3:first-child,
+.recipe-detail .ingredients h4:first-child { margin-top: 0; }
+.recipe-detail .instructions p,
+.recipe-detail .summary p { margin: 0 0 0.75rem; }
+.recipe-detail .instructions p:last-child,
+.recipe-detail .summary p:last-child { margin-bottom: 0; }
 
 footer {
   border-top: 1px solid #d9d0c2;

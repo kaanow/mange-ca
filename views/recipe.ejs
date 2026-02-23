@@ -14,7 +14,7 @@
       <div class="wrap">
         <p class="back"><a href="/">← Recipes</a></p>
         <h1><%= recipe.title %></h1>
-        <% if (recipe.summary) { %><p class="summary"><%= recipe.summary %></p><% } %>
+        <% if (recipe.summary) { %><div class="summary"><%- formatRecipeText(recipe.summary) %></div><% } %>
         <% if (recipe.ingredients) { %>
         <h2>Ingredients</h2>
         <div class="ingredients"><%- formatRecipeText(recipe.ingredients) %></div>
