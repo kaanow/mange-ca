@@ -11,5 +11,7 @@ alwaysApply: true
 - Slug: lowercase, hyphens (e.g. `lentil-soup`). No spaces.
 - **Newlines in SQL:** Use PostgreSQL E'' strings so `\n` is a real newline, e.g. `E'line one\nline two'`. Otherwise `\n` will show literally on the site.
 - **Number + unit:** ALWAYS put a non-breaking space (NBSP) between a number and its unit; the app also auto-fixes on display.
+- **Quantity style (reference: lamb meatballs):** Use metric first, then imperial in parentheses. Examples: `30 ml (2 tablespoons)`, `5 ml (1 teaspoon)`, `375 ml (1 1/2 cups)`, `500 g (~1 pound)`. Use full words in parentheses: "teaspoon", "tablespoon", "cup" (not "tsp", "tbsp"). For amounts that are only imperial, still give metric when possible: `125 ml (½ cup)`.
+- **Proper units only:** No informal abbreviations. Use "minutes" not "min", "seconds" not "sec". Temperatures: "°F" and "°C" are fine.
 - **Formatting:** Recipe content (summary, ingredients, instructions) can use safe HTML: headings (<h3>, <h4>), bullets (<ul><li>...</li></ul>), links (<a href="...">), <p>, <strong>, <em>, <br>. The app sanitizes and renders it; use these to preserve the user’s structure (e.g. step headings, ingredient lists, origin links).
 - The user does not run SQL manually. They push; migrations run on deploy. When the user asks to add a recipe, create the migration file and tell them to commit and push (or do it for them if they prefer).
