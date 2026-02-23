@@ -65,6 +65,33 @@ section h2 {
 
 section p { color: #7a6e62; }
 
+.recipe-list {
+  list-style: none;
+}
+
+.recipe-list a {
+  color: #1a1612;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.recipe-list a:hover { color: #b94a2c; }
+
+.recipe-list li { margin-bottom: 0.5rem; }
+
+.recipe-detail .back { margin-bottom: 1rem; }
+.recipe-detail .back a { color: #7a6e62; text-decoration: none; }
+.recipe-detail .back a:hover { color: #b94a2c; }
+.recipe-detail h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+.recipe-detail .summary { color: #7a6e62; margin-bottom: 1.5rem; }
+.recipe-detail h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+.recipe-detail pre {
+  font-family: inherit;
+  white-space: pre-wrap;
+  color: #2e2820;
+  margin: 0;
+}
+
 footer {
   border-top: 1px solid #d9d0c2;
   padding: 1.5rem 0;

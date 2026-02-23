@@ -1,0 +1,12 @@
+---
+description: Add recipes via migration files; user never edits DB by hand
+alwaysApply: true
+---
+
+# Adding recipes (content)
+
+- **All new recipes** go in as **migration files** in `migrations/`.
+- Name: next number, e.g. `003_add_slug.sql`. Use a descriptive suffix.
+- Content: one or more `INSERT INTO recipes (slug, title, summary, ingredients, instructions) VALUES (...)` with `ON CONFLICT (slug) DO NOTHING` so re-runs are safe.
+- Slug: lowercase, hyphens (e.g. `lentil-soup`). No spaces.
+- The user does not run SQL manually. They push; migrations run on deploy. When the user asks to add a recipe, create the migration file and tell them to commit and push (or do it for them if they prefer).

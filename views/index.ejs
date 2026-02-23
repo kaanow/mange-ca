@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mange Ça</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Recipes</h1>
+        <% if (!hasDb) { %>
+          <p>Set DATABASE_URL to connect a database.</p>
+        <% } else if (recipes.length === 0) { %>
+          <p>No recipes yet.</p>
+        <% } else { %>
+          <p><%= recipes.length %> recipe<%= recipes.length === 1 ? '' : 's' %>.</p>
+        <% } %>
+      </div>
+    </section>
+
+    <% if (recipes.length > 0) { %>
+    <section id="recipes">
+      <div class="wrap">
+        <h2>Recipes</h2>
+        <ul class="recipe-list">
+          <% recipes.forEach(function(r) { %>
+            <li><a href="/recipes/<%= r.slug %>"><%= r.title %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+    </section>
+    <% } %>
+
+    <section id="about">
+      <div class="wrap">
+        <h2>About</h2>
+        <p>Placeholder. More later.</p>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

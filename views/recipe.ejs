@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= recipe.title %> — Mange Ça</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <article class="recipe-detail">
+      <div class="wrap">
+        <p class="back"><a href="/">← Recipes</a></p>
+        <h1><%= recipe.title %></h1>
+        <% if (recipe.summary) { %><p class="summary"><%= recipe.summary %></p><% } %>
+        <% if (recipe.ingredients) { %>
+        <h2>Ingredients</h2>
+        <pre class="ingredients"><%= recipe.ingredients %></pre>
+        <% } %>
+        <% if (recipe.instructions) { %>
+        <h2>Instructions</h2>
+        <pre class="instructions"><%= recipe.instructions %></pre>
+        <% } %>
+      </div>
+    </article>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
