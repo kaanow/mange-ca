@@ -5,8 +5,9 @@ alwaysApply: true
 
 # Verify live site after changes
 
-**Standing request:** When you make changes that affect the deployed site (e.g. edits to `public/`, or after committing/pushing), check the live site shortly after so updates are showing correctly.
+**Standing request:** When you make changes that affect the deployed site (or when the user says they like it / conversation naturally closes an update), verify the live site and compare to expectations. Do this without being asked.
 
 - **Live URL:** https://menu.eatlogicalsentences.com
-- **How:** Fetch the URL (e.g. with mcp_web_fetch or equivalent) and confirm the content matches what was changed. Do this as part of your workflow after relevant edits or deploys, not on a schedule — treat it as a default follow-up step.
-- If the user just pushed or you just helped push, wait a minute then check. If you only edited files and didn’t push, only check after the user has pushed and had time for Railway to deploy (~1–3 min).
+- **When:** (1) Shortly after you or the user push (allow ~1–2 min for deploy). (2) When the user says they like something or the conversation ends an update — use that as a cue to verify *that* update if you haven’t already. (3) At natural end of any change that affects the deployed site.
+- **How:** Fetch the relevant URLs (homepage, recipe pages, or whatever the change touched). Confirm the content matches what was intended (e.g. newlines as line breaks, NBSP between number and unit, new recipe visible). Compare to expectations; note any mismatch.
+- **Tracking:** Treat each logical update (e.g. “newline + NBSP fix”, “new recipe X”) as one unit. Once you’ve verified that unit on the live site, you don’t need to re-verify the same unit. When in doubt, verify — no need for the user to prompt you.
