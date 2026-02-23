@@ -85,7 +85,8 @@ section p { color: #7a6e62; }
 .recipe-detail h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
 .recipe-detail .summary { color: #7a6e62; margin-bottom: 1.5rem; }
 .recipe-detail h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
-.recipe-detail pre {
+.recipe-detail .ingredients,
+.recipe-detail .instructions {
   font-family: inherit;
   white-space: pre-wrap;
   color: #2e2820;

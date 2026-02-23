@@ -9,4 +9,6 @@ alwaysApply: true
 - Name: next number, e.g. `003_add_slug.sql`. Use a descriptive suffix.
 - Content: one or more `INSERT INTO recipes (slug, title, summary, ingredients, instructions) VALUES (...)` with `ON CONFLICT (slug) DO NOTHING` so re-runs are safe.
 - Slug: lowercase, hyphens (e.g. `lentil-soup`). No spaces.
+- **Newlines in SQL:** Use PostgreSQL E'' strings so `\n` is a real newline, e.g. `E'line one\nline two'`. Otherwise `\n` will show literally on the site.
+- **Number + unit:** ALWAYS put a non-breaking space (NBSP, `\u00A0` or `&#160;`) between a number and its unit: `350\u00A0°F`, `2\u00A0cups`, `1\u00A0tbsp`. Never "350°F" or "2 cups" with a regular space in content you control; the app also auto-fixes on display, but migrations should use NBSP.
 - The user does not run SQL manually. They push; migrations run on deploy. When the user asks to add a recipe, create the migration file and tell them to commit and push (or do it for them if they prefer).

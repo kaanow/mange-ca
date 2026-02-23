@@ -17,11 +17,11 @@
         <% if (recipe.summary) { %><p class="summary"><%= recipe.summary %></p><% } %>
         <% if (recipe.ingredients) { %>
         <h2>Ingredients</h2>
-        <pre class="ingredients"><%= recipe.ingredients %></pre>
+        <div class="ingredients"><%- formatRecipeText(recipe.ingredients) %></div>
         <% } %>
         <% if (recipe.instructions) { %>
         <h2>Instructions</h2>
-        <pre class="instructions"><%= recipe.instructions %></pre>
+        <div class="instructions"><%- formatRecipeText(recipe.instructions) %></div>
         <% } %>
       </div>
     </article>

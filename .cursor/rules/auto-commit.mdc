@@ -1,0 +1,8 @@
+---
+description: After making updates, commit and push without asking
+alwaysApply: true
+---
+
+# Auto-commit and push
+
+**Standing request:** When you make changes to the repo (code, content, config, or docs), automatically commit and push to the current branch without asking the user. Use a clear, concise commit message that describes what changed. Do not prompt for permission to commit or push.

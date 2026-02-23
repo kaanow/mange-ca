@@ -9,6 +9,28 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Format recipe text: escape HTML, newlines → <br>, number+unit → number+nbsp+unit
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+function nl2br(s) {
+  if (s == null) return '';
+  return String(s).replace(/\\n/g, '\n').replace(/\r?\n/g, '<br>');
+}
+function nbspUnits(s) {
+  if (s == null) return '';
+  return String(s).replace(
+    /(\d)\s*([°º]?F|[°º]?C|cups?|tbsp|tsp|oz|ml|g|kg|lb)s?\b/gi,
+    '$1\u00A0$2'
+  );
+}
+app.locals.formatRecipeText = (s) => nl2br(nbspUnits(escapeHtml(s || '')));
+
 app.get('/', async (req, res) => {
   const recipes = await db.getRecipes();
   res.render('index', { recipes, hasDb: !!db.pool });
