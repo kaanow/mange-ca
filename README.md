@@ -1,6 +1,6 @@
 # Mange Ça
 
-A personal recipe site. Simple HTML/CSS, served via Express on Railway.
+A personal recipe site. English content, minimal placeholder for now. Simple HTML/CSS, served via Express on Railway.
 
 ## Structure
 
