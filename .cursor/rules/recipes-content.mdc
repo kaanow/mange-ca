@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Adding recipes (content)
 
-- **All new recipes** go in as **migration files** in `migrations/`.
+- **All new recipes** go in as **migration files** in `migrations/`. The homepage list is ordered **alphabetically by title**; new entries need no special handling.
 - Name: next number, e.g. `003_add_slug.sql`. Use a descriptive suffix.
 - Content: one or more `INSERT INTO recipes (slug, title, summary, ingredients, instructions) VALUES (...)` with `ON CONFLICT (slug) DO NOTHING` so re-runs are safe.
 - Slug: lowercase, hyphens (e.g. `lentil-soup`). No spaces.

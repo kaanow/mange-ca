@@ -43,7 +43,7 @@ async function runMigrations() {
 async function getRecipes() {
   if (!pool) return [];
   const { rows } = await pool.query(
-    'SELECT slug, title, summary, created_at FROM recipes ORDER BY created_at DESC'
+    'SELECT slug, title, summary, created_at FROM recipes ORDER BY title'
   );
   return rows;
 }
