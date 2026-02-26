@@ -5,10 +5,17 @@ alwaysApply: true
 
 # Verify live site after changes
 
-**Standing request:** When you make changes that affect the deployed site (or when the user says they like it / conversation naturally closes an update), verify the live site and compare to expectations. Do this without being asked.
+**Standing request:** When you make changes that affect the deployed site (or when the user says they like it / conversation naturally closes an update), verify the live site and compare to expectations. Do this without being asked. **Deploy lag:** Railway takes ~1–2 minutes after push; the live site won’t show your change until then. Use the triggers below to check at the right time and catch your own mistakes.
 
 - **Live URL:** https://menu.eatlogicalsentences.com
-- **When:** (1) Shortly after you or the user push (allow ~1–2 min for deploy). (2) When the user says they like something or the conversation ends an update — use that as a cue to verify *that* update if you haven’t already. (3) At natural end of any change that affects the deployed site. **(4) Whenever the user asks to validate or verify something that affects the site (e.g. “validate that X is as expected”) — include fetching the live URL and checking the relevant page(s); do not validate from code/migrations only.**
+- **When to verify:**
+  1. **Shortly after you or the user push** — allow ~1–2 min for deploy, then fetch the relevant page(s) and confirm content matches intent.
+  2. **When the user says they like something or the conversation ends an update** — use that as a cue to verify *that* update if you haven’t already.
+  3. **At natural end of any change that affects the deployed site** — before you say “done” or “all set,” either verify (if enough time has passed) or note what to verify and that deploy takes 1–2 min.
+  4. **Whenever the user asks to validate or verify something that affects the site** (e.g. “validate that X is as expected”) — include fetching the live URL and checking the relevant page(s); do not validate from code/migrations only.
+  5. **On the next user message after a site-affecting push** — if you just committed/pushed a change that affects the live site and you have *not* yet verified it on the live URL, treat the user’s next message (e.g. “ok,” “thanks,” “and?”, or a new question) as the trigger: deploy has likely completed, so fetch the live URL now and confirm the change looks correct. This is how you catch your own mistakes despite deploy lag.
+  6. **Any phrase that implies “did it work?”** — e.g. “is it live?”, “can you check?”, “did that fix it?”, “does it look right?” — always run the live check.
+- **After pushing a site-affecting change:** Briefly state what should be true on the live site (e.g. “Best Granola recipe page should show single-form units”) and that deploy takes ~1–2 min. If the user replies again in this conversation, run the live check then.
 - **How:** Fetch the relevant URLs (homepage, recipe pages, or whatever the change touched). Confirm the content matches what was intended (e.g. newlines as line breaks, NBSP between number and unit, new recipe visible). Compare to expectations; note any mismatch.
 - **Tracking:** Treat each logical update (e.g. “newline + NBSP fix”, “new recipe X”) as one unit. Once you’ve verified that unit on the live site, you don’t need to re-verify the same unit. When in doubt, verify — no need for the user to prompt you.
 - **Reporting:** If the live site matches expectations, say so in a short phrase only (e.g. “Live site looks good.”). If something’s wrong, use your judgment on what to report and whether to fix it, suggest a fix, or ask — no full report unless the problem warrants it.
