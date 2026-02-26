@@ -128,7 +128,7 @@ section h2 {
 .recipe-detail .instructions li { margin-bottom: 0.25rem; }
 .recipe-detail .instructions h3,
 .recipe-detail .ingredients h4 {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text);
   margin: 1.25rem 0 0.35rem;
