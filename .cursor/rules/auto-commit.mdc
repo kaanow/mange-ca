@@ -6,3 +6,5 @@ alwaysApply: true
 # Auto-commit and push
 
 **Standing request:** When you make changes to the repo (code, content, config, or docs), automatically commit and push to the current branch without asking the user. Use a clear, concise commit message that describes what changed. Do not prompt for permission to commit or push.
+
+**Commit attribution:** Do not add `Co-authored-by:` or any cursoragent/Cursor attribution to commit messages; the user wants commits to show only their identity (kaanow).
